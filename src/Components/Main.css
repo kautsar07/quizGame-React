@@ -94,8 +94,8 @@
   color: var(--color-bg4);
 }
 
-.btn-go button:hover{
-    background: var(--color-bg1);
+.btn-go button:hover {
+  background: var(--color-bg1);
 }
 
 .category {
@@ -115,6 +115,16 @@
   font-size: 12px;
   background: rgb(27, 27, 27, 0.5);
   opacity: 1;
+  animation: desc 0.7s ease-in-out;
+}
+
+@keyframes desc {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .description-full h6 {
   font-size: 17px;
