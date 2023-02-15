@@ -59,6 +59,7 @@
   border-radius: 10px 17px;
   padding: 3px 0;
   border: 2px solid #fff;
+  cursor: pointer;
 }
 .logo img:hover {
   filter: saturate(70%);

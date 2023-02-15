@@ -1,22 +1,25 @@
 .wrap-main {
   background: var(--color-bg1);
-  width: 100%;
-  height: 75vh;
+  height: fit-content;
   margin-top: 30px;
-  border-radius: 40px;
+  border-radius: 20px;
   padding: 20px;
   color: var(--color-bg4);
 }
+.wrap-main p {
+  font-size: 13px;
+}
 .quiz {
+  margin-bottom: 20px;
   padding-bottom: 20px;
-  border-bottom: 1px solid var(--color-bg2);
+  border-bottom: 2px solid var(--color-bg2);
 }
 .quiz h1 {
   background: var(--color-bg2);
   width: 300px;
   padding: 10px;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 10px;
   border: 1px solid #fff;
 }
 
@@ -99,10 +102,9 @@
 }
 
 .category {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: fit-content;
-  gap: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card-img:hover .description-full {

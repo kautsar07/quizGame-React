@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 
 export default function Card(props) {
   return (
     <div className="card">
       <div className="card-img">
-        <img src={props.imgUrl} alt="" />
+        <img  src={props.imgUrl} alt="" />
 
         <div className="description-full">
             <h6>{props.titleQuiz}</h6>

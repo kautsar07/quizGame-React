@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import Card from "./Card";
 import "./Main.css";
 
 export default function Main() {
-  const category= [
+  const category = [
     {
       Category: "ART",
       imgUrl:
@@ -26,6 +26,15 @@ export default function Main() {
         <div className="quiz">
           <h1>Category Quiz</h1>
         </div>
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Numquam,
+          similique cupiditate accusantium temporibus corrupti eaque tenetur
+          nihil beatae reiciendis labore pariatur asperiores consequuntur
+          inventore libero vitae nobis. Veniam numquam et blanditiis, quasi,
+          voluptatum eos laborum culpa explicabo distinctio eligendi dolorem
+          voluptas aspernatur rerum facilis corporis aperiam eius cum quidem
+          beatae?
+        </p>
         <div className="category">
           {category.map((item) => (
             <Card
