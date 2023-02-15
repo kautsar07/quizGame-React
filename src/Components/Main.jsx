@@ -3,7 +3,7 @@ import Card from "./Card";
 import "./Main.css";
 
 export default function Main() {
-  const [category, setCategory] = useState([
+  const category= [
     {
       Category: "ART",
       imgUrl:
@@ -19,7 +19,7 @@ export default function Main() {
       imgUrl:
         "https://images.pexels.com/photos/3199399/pexels-photo-3199399.jpeg?auto=compress&cs=tinysrgb&w=1600",
     },
-  ]);
+  ];
   return (
     <div className="container">
       <div className="wrap-main">
