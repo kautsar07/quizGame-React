@@ -1,8 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "./Card";
 import "./Main.css";
 
 export default function Main() {
+  const navigate = useNavigate()
   const category = [
     {
       Category: "ART",
@@ -45,7 +47,9 @@ export default function Main() {
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit.
                   Distinctio, eligendi.
                 </p>
+              
               }
+                typeQuiz={()=>navigate(`/${item.Category.toLocaleLowerCase()}/${item.Category}`)}
             />
           ))}
         </div>

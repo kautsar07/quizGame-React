@@ -4,7 +4,9 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-import LayoutQuiz from "./Components/LayoutQuiz";
+import QuizAnimals from "./Components/QuizAnimals";
+import QuizArt from "./Components/QuizArt";
+import QuizHistory from "./Components/QuizHistory";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,7 +14,9 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-        <Route path="/joko" element={<LayoutQuiz />} />
+        <Route path="/animals/:title" element={<QuizAnimals />} />
+        <Route path="/art/:title" element={<QuizArt />} />
+        <Route path="/history/:title" element={<QuizHistory />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

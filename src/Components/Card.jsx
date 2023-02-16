@@ -28,7 +28,7 @@ export default function Card(props) {
         </div>
 
         <div className="btn-go">
-          <button>Go</button>
+          <button onClick={props.typeQuiz}>Go</button>
         </div>
       </div>
     </div>
