@@ -16,7 +16,7 @@ root.render(
         <Route path="/" element={<App />} />
         <Route path="/animals/:title" element={<QuizAnimals />} />
         <Route path="/art/:title" element={<QuizArt />} />
-        <Route path="/history/:title" element={<QuizHistory />} />
+        <Route path="/question/:id" element={<QuizHistory />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

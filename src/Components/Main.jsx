@@ -7,17 +7,20 @@ export default function Main() {
   const navigate = useNavigate()
   const category = [
     {
-      Category: "ART",
+      id: 25,
+      Category: "Art",
       imgUrl:
         "https://images.pexels.com/photos/3660035/pexels-photo-3660035.jpeg?auto=compress&cs=tinysrgb&w=1600",
     },
     {
-      Category: "ANIMALS",
+      id:27,
+      Category: "Animals",
       imgUrl:
         "https://images.pexels.com/photos/320014/pexels-photo-320014.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     },
     {
-      Category: "HISTORY",
+      id:23,
+      Category: "History",
       imgUrl:
         "https://images.pexels.com/photos/3199399/pexels-photo-3199399.jpeg?auto=compress&cs=tinysrgb&w=1600",
     },
@@ -49,7 +52,7 @@ export default function Main() {
                 </p>
               
               }
-                typeQuiz={()=>navigate(`/${item.Category.toLocaleLowerCase()}/${item.Category}`)}
+                typeQuiz={()=>navigate(`/question/${item.id}`)}
             />
           ))}
         </div>
