@@ -1,0 +1,18 @@
+.wrap-score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.score {
+    background: var(--color-bg1);
+    min-width: 100px;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 70px;
+    border: 6px solid var(--color-bg3);
+    color: var(--color-bg4);
+    padding: 10px;
+    font-size: 35px;
+}

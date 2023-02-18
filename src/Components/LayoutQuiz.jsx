@@ -3,7 +3,8 @@ import Navbar from "./Navbar";
 import Countdown from "react-countdown";
 import axios from "axios";
 import "./LayoutQuiz.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import ModalScore from "./ModalScore";
 
 export default function QuizHistory() {
   const [start, setStart] = useState(false);
@@ -13,24 +14,34 @@ export default function QuizHistory() {
   const [difficult, setDifficult] = useState([]);
   const [number, setNumber] = useState(0);
   const [color, setColor] = useState(false);
-  const [nilai, setNilai] = useState([]);
+  const [nilai, setNilai] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [timer, setTimer] = useState([number]);
   const [correctAnswer, setCorrectAnswer] = useState(null);
 
   const { id } = useParams();
+  const navigate = useNavigate();
 
-  const Title=()=>{
-    let title 
-    if(id === "27"){
-      title = "Animals"
-      return title
-    }else if(id === "25"){
-      title = "Art"
-      return title
-    }else{
-      title = "History"
-      return title
+  const Title = () => {
+    let title;
+    if (id === "27") {
+      title = "Animals";
+      return title;
+    } else if (id === "25") {
+      title = "Art";
+      return title;
+    } else {
+      title = "History";
+      return title;
     }
-  }
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   const Sss = () => {
     if (number <= 5) {
       return setNumber(number + 1);
@@ -40,15 +51,17 @@ export default function QuizHistory() {
   };
 
   const renderer = ({ seconds, completed }) => {
-    if (completed) {
-
+    let timer = "";
+    if (number === 6) {
+      setIsModalOpen(true);
     } else {
-      return (
-        <div className="wrap-timer">
+      for (let i = number; i < difficult.length; i++) {
+        // setNumber(number+1)
+        return(
+        <div key={i} className="wrap-timer">
           <div className="timer">{seconds}s</div>
-     
-        </div>
-      );
+        </div>)
+      }
     }
   };
 
@@ -77,10 +90,14 @@ export default function QuizHistory() {
       console.error(error);
     }
   };
-  const handleNumber = (data, i) => {
-    nilai.push(data);
+  const handleNumber = (data, i, answer) => {
+    setNilai(nilai + answer);
     setColor(true);
     setNumber(number + 1);
+    timer.push(number+1)
+    if (number === 6) {
+      setIsModalOpen(true);
+    }
   };
   const handleStart = (e) => {
     if (e === "Easy") {
@@ -96,7 +113,7 @@ export default function QuizHistory() {
   useEffect(() => {
     loadDrink();
     benar();
-    Title()
+    Title();
   }, []);
 
   return (
@@ -106,9 +123,11 @@ export default function QuizHistory() {
       <div className="container">
         <div className="wrap-layout">
           <div className="title-quiz">
-            <h1>Quiz <Title/> </h1>
+            <h1>
+              Quiz <Title />{" "}
+            </h1>
             {start ? (
-              <Countdown date={Date.now() + 3000} renderer={renderer} />
+              <Countdown date={Date.now() + 10000} renderer={renderer} />
             ) : null}
           </div>
           {start ? null : (
@@ -151,7 +170,7 @@ export default function QuizHistory() {
                               ? { backgroundColor: "#fad6a5", color: "#567189" }
                               : { backgroundColor: "#567189", color: "#fad6a5" }
                           }
-                          onClick={() => handleNumber(item, i)}
+                          onClick={() => handleNumber(item, i, 0)}
                         >
                           {item}
                         </button>
@@ -162,7 +181,7 @@ export default function QuizHistory() {
                             ? { backgroundColor: "#fad6a5", color: "#567189" }
                             : { backgroundColor: "#567189", color: "#fad6a5" }
                         }
-                        onClick={() => handleNumber(item.correct_answer, 3)}
+                        onClick={() => handleNumber(item.correct_answer, 3, 1)}
                       >
                         {item.correct_answer}
                       </button>
@@ -172,6 +191,13 @@ export default function QuizHistory() {
             </>
           ) : null}
         </div>
+        <ModalScore
+          isModalOpen={isModalOpen}
+          handleOk={() => navigate("/")}
+          handleCancel={() => navigate("/")}
+          length={difficult.length}
+          answer={nilai}
+        />
       </div>
     </div>
   );
