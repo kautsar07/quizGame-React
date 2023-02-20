@@ -5,6 +5,7 @@ import App from "./App";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import QuizHistory from "./Components/LayoutQuiz";
+import Login from "./Components/ModalLogin";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -12,7 +13,6 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
-
         <Route path="/question/:id" element={<QuizHistory />} />
       </Routes>
     </BrowserRouter>

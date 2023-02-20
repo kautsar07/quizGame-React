@@ -64,3 +64,17 @@
 .logo img:hover {
   filter: saturate(70%);
 }
+
+.logout{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 15px;
+}
+
+.logout img{
+  border: 2px solid #fff;
+  width: 45px;
+  aspect-ratio: 1/1;
+  border-radius: 25px;
+}

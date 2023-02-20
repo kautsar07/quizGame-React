@@ -36,31 +36,21 @@ export default function QuizHistory() {
     }
   };
 
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-  const Sss = () => {
-    if (number <= 5) {
-      return setNumber(number + 1);
-    } else {
-      return <span>selesai</span>;
-    }
-  };
-
   const renderer = ({ seconds, completed }) => {
     let timer = "";
     if (number === 6) {
       setIsModalOpen(true);
     } else {
       for (let i = number; i < difficult.length; i++) {
-        // setNumber(number+1)
-        return(
-        <div key={i} className="wrap-timer">
-          <div className="timer">{seconds}s</div>
-        </div>)
+        if (seconds === 0) {
+          return setNumber(i + 1);
+        } else {
+          return (
+            <div key={i} className="wrap-timer">
+              <div className="timer">{seconds}s</div>
+            </div>
+          );
+        }
       }
     }
   };
@@ -94,7 +84,7 @@ export default function QuizHistory() {
     setNilai(nilai + answer);
     setColor(true);
     setNumber(number + 1);
-    timer.push(number+1)
+    timer.push(number + 1);
     if (number === 6) {
       setIsModalOpen(true);
     }
