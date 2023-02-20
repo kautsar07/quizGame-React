@@ -1,18 +1,38 @@
 .wrap-score{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    gap: 20px;
 }
 .score {
     background: var(--color-bg1);
-    min-width: 100px;
-    min-height: 100px;
+    width: 120px;
+    aspect-ratio: 1/1;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 70px;
+    border-radius: 75px;
     border: 6px solid var(--color-bg3);
     color: var(--color-bg4);
     padding: 10px;
     font-size: 35px;
+}
+.wrap-count{
+    display: flex;
+    gap: 10px;
+}
+
+.count{
+    background: var(--color-bg1);
+    width: 100px;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    padding: 5px;
+    color: var(--color-bg4);
+    border: 3px solid var(--color-bg3);
 }

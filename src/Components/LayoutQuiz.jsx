@@ -17,7 +17,8 @@ export default function QuizHistory() {
   const [nilai, setNilai] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [timer, setTimer] = useState([number]);
-  const [correctAnswer, setCorrectAnswer] = useState(null);
+  const [countCorrect, setCountCorrect] = useState([])
+  const [countInCorrect, setCountInCorrect] = useState([]);
 
   const { id } = useParams();
   const navigate = useNavigate();
@@ -85,8 +86,14 @@ export default function QuizHistory() {
     setColor(true);
     setNumber(number + 1);
     timer.push(number + 1);
+    console.log(typeof answer);
     if (number === 6) {
       setIsModalOpen(true);
+    }
+    if (answer === 1){
+      countCorrect.push(answer)
+    }else{
+      countInCorrect.push(answer)
     }
   };
   const handleStart = (e) => {
@@ -99,6 +106,7 @@ export default function QuizHistory() {
     }
     setStart(true);
   };
+  console.log(countCorrect.length);
 
   useEffect(() => {
     loadDrink();
@@ -135,7 +143,7 @@ export default function QuizHistory() {
                   <button
                     key={i}
                     style={
-                      color && number === i
+                      color === true && number === i
                         ? { backgroundColor: "#fad6a5", color: "#567189" }
                         : { backgroundColor: "#567189", color: "#fad6a5" }
                     }
@@ -156,7 +164,7 @@ export default function QuizHistory() {
                       {item.incorrect_answers.map((item, i) => (
                         <button
                           style={
-                            correctAnswer !== item
+                            color !== item
                               ? { backgroundColor: "#fad6a5", color: "#567189" }
                               : { backgroundColor: "#567189", color: "#fad6a5" }
                           }
@@ -167,7 +175,7 @@ export default function QuizHistory() {
                       ))}
                       <button
                         style={
-                          correctAnswer !== item.correct_answer
+                          color !== item.correct_answer
                             ? { backgroundColor: "#fad6a5", color: "#567189" }
                             : { backgroundColor: "#567189", color: "#fad6a5" }
                         }
@@ -187,6 +195,9 @@ export default function QuizHistory() {
           handleCancel={() => navigate("/")}
           length={difficult.length}
           answer={nilai}
+          salah={countInCorrect.length}
+          benar={countCorrect.length}
+          Soal={difficult.length}
         />
       </div>
     </div>

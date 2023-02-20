@@ -17,10 +17,22 @@ export default function ModalScore(props) {
         ]}
       >
         <div className="wrap-score">
-         
-
+          <div className="wrap-count">
+            <div className="count">
+              <h4>Jumlah benar</h4>
+              <p>{props.benar}</p>
+            </div>
+            <div className="count">
+              <h4>Jumlah salah</h4>
+              <p>{props.salah}</p>
+            </div>
+            <div className="count">
+              <h4>Jumlah Soal</h4>
+              <p>{props.Soal}</p>
+            </div>
+          </div>
           <div className="score">
-            <h1>{((100/props.length)*(props.answer)).toFixed()}</h1>
+            <h1>{((100 / props.length) * props.answer).toFixed()}</h1>
           </div>
         </div>
       </Modal>
